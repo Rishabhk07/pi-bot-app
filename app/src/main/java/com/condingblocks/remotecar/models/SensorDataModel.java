@@ -9,6 +9,9 @@ public class SensorDataModel {
     float accelY;
     float accelZ;
 
+    public SensorDataModel() {
+    }
+
     public SensorDataModel(float accelX, float accelY, float accelZ) {
         this.accelX = accelX;
         this.accelY = accelY;

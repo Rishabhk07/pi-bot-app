@@ -1,10 +1,13 @@
 package com.condingblocks.remotecar;
 
+import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
+import android.widget.ImageView;
 
 import com.condingblocks.remotecar.utils.SensorListner;
 
@@ -12,8 +15,17 @@ public class MainActivity extends AppCompatActivity {
 
     SensorManager sensorManager;
     public static final String TAG = "MainActivity";
-    SensorListner sensorListner;
+    public static SensorListner sensorListner = new SensorListner();
+    public static ImageView imageIv;
+    Display display;
+    Point point;
+    static int maxX;
+    static int maxY;
+
+
     Sensor accelSensor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
-         accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        display = getWindowManager().getDefaultDisplay();
+
+        point = new Point();
+        display.getSize(point);
+        maxX = point.x;
+        maxY = point.y;
+
+        imageIv = (ImageView) findViewById(R.id.circleIV);
+
 
         if(accelSensor != null ){
 
@@ -31,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate: Sensor not created" );
         }
 
-        sensorListner = new SensorListner();
+
+
+
 
     }
 
@@ -52,7 +76,29 @@ public class MainActivity extends AppCompatActivity {
         sensorManager.registerListener(
                 sensorListner,
                 accelSensor,
-                1000 * 10
+                SensorManager.SENSOR_DELAY_GAME
         );
+    }
+
+    public static void changePosition(){
+        float x = sensorListner.model.getAccelX();
+        float y = sensorListner.model.getAccelY();
+
+
+        if(x > maxX - 100){
+            x = maxX-100;
+        }else if (x < 1){
+            x = 1;
+        }
+
+        if(y > maxY -400){
+            y = maxY - 400;
+        }else if (y < 0){
+            y = 0;
+        }
+
+
+        imageIv.setX(x);
+        imageIv.setY(y);
     }
 }
