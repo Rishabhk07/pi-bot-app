@@ -50,10 +50,9 @@ public class SensorListner implements SensorEventListener {
         });
 
 
-
         Log.d(TAG, "SensorListner: constructor");
-
         socket.connect();
+        Log.d(TAG, "SensorListner: called");
     }
 
     @Override

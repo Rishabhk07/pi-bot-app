@@ -11,9 +11,10 @@
     tools:context="com.condingblocks.remotecar.MainActivity">
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@color/colorAccent"
-        android:id="@+id/circleIV"/>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/circleIV"
+        />
 
 </RelativeLayout>

@@ -11,6 +11,14 @@ import android.widget.ImageView;
 
 import com.condingblocks.remotecar.utils.SensorListner;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class MainActivity extends AppCompatActivity {
 
     SensorManager sensorManager;
@@ -43,6 +51,25 @@ public class MainActivity extends AppCompatActivity {
         maxY = point.y;
 
         imageIv = (ImageView) findViewById(R.id.circleIV);
+        InputStream inputStream = null;
+        try {
+            inputStream = getAssets().open("Test.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sb = new StringBuilder();
+            String buf = "";
+            while((buf = reader.readLine()) != null){
+                sb.append(buf);
+            }
+
+            JSONObject jsonObject = new JSONObject(sb.toString());
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
         if(accelSensor != null ){
