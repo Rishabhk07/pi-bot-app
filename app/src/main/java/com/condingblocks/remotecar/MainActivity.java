@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.condingblocks.remotecar.utils.SensorListner;
@@ -29,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     Point point;
     static int maxX;
     static int maxY;
+    Button btnLeft;
+    Button btnRight;
+
+    public static boolean enableLeft = false;
+    public static boolean enableRight = false;
 
 
     Sensor accelSensor;
@@ -49,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         display.getSize(point);
         maxX = point.x;
         maxY = point.y;
-
+        btnLeft = (Button) findViewById(R.id.btnDirection);
+        btnRight = (Button) findViewById(R.id.btnAccel);
         imageIv = (ImageView) findViewById(R.id.circleIV);
         InputStream inputStream = null;
         try {
@@ -80,6 +89,33 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate: Sensor not created" );
         }
 
+        btnLeft.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    enableLeft = true;
+                    enableRight = false;
+                }else if(event.getAction() == MotionEvent.ACTION_UP){
+                    enableLeft = false;
+                    enableRight = false;
+                }
+                return false;
+            }
+        });
+
+        btnRight.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    enableLeft = false;
+                    enableRight = true;
+                }else if(event.getAction() == MotionEvent.ACTION_UP){
+                    enableLeft = false;
+                    enableRight = false;
+                }
+                return false;
+            }
+        });
 
 
 
