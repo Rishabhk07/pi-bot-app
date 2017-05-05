@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.condingblocks.remotecar.R;
+import com.condingblocks.remotecar.models.Direction;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
@@ -21,6 +25,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
     Button backward;
     io.socket.client.Socket socket;
     public static final String TAG = "Controls";
+    Gson gson;
 
 
     @Override
@@ -32,7 +37,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         right = (Button) findViewById(R.id.btnRight);
         forward = (Button) findViewById(R.id.btnForward);
         backward = (Button) findViewById(R.id.btnBackward);
-
+        gson = new Gson();
 
         left.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -41,12 +46,14 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                     disableRight();
                     disableForward();
                     disableBackward();
-
+                    sendSocketData("left");
+                    Log.d(TAG, "onTouch: Left down");
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableRight();
                     enableForward();
                     enableBackward();
+                    sendSocketData("stop");
                 }
                 return false;
             }
@@ -59,12 +66,14 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                     disableLeft();
                     disableForward();
                     disableBackward();
-
+                    sendSocketData("right");
+                    Log.d(TAG, "onTouch: right down");
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableLeft();
                     enableForward();
                     enableBackward();
+                    sendSocketData("stop");
                 }
                 return false;
             }
@@ -77,12 +86,15 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                     disableRight();
                     disableLeft();
                     disableBackward();
-
+                    sendSocketData("forward");
+                    Log.d(TAG, "onTouch: forward down");
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableRight();
                     enableLeft();
                     enableBackward();
+                    sendSocketData("stop");
+                    Log.d(TAG, "onTouch: forward stop");
                 }
                 return false;
             }
@@ -95,12 +107,15 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                     disableRight();
                     disableForward();
                     disableLeft();
-
+                    sendSocketData("backward");
+                    Log.d(TAG, "onTouch: backward down");
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableRight();
                     enableForward();
                     enableLeft();
+                    sendSocketData("stop");
+                    Log.d(TAG, "onTouch: forward stop");
                 }
                 return false;
             }
@@ -143,7 +158,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
 
     public void socketConnection(){
         try {
-            socket = IO.socket("https://car-remote.herokuapp.com/");
+            socket = IO.socket("http://192.168.1.34:8888/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -159,6 +174,13 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                 socket.emit("foo" , "hii");
             }
         });
-
     }
+
+    public void sendSocketData(String direction){
+        Direction thisDirection = new Direction(direction);
+        String thisObject = gson.toJson(thisDirection);
+        Log.d(TAG, "sendSocketData: sendData to server");
+        socket.emit("control", thisObject);
+    }
+
 }
