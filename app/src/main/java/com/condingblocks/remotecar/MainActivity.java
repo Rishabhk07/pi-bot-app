@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     static int maxY;
     Button btnLeft;
     Button btnRight;
+    WebView webView;
 
     public static boolean enableLeft = false;
     public static boolean enableRight = false;
@@ -59,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         maxY = point.y;
         btnLeft = (Button) findViewById(R.id.btnDirection);
         btnRight = (Button) findViewById(R.id.btnAccel);
-        imageIv = (ImageView) findViewById(R.id.circleIV);
+//        imageIv = (ImageView) findViewById(R.id.circleIV);
+        webView = (WebView) findViewById(R.id.webView);
         InputStream inputStream = null;
         try {
             inputStream = getAssets().open("Test.json");
@@ -121,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        if(webView != null){
+            webView.loadUrl("http://http://192.168.1.38:8081/");
+        }
+
 
 
 
@@ -165,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        imageIv.setX(x);
-        imageIv.setY(y);
+//        imageIv.setX(x);
+//        imageIv.setY(y);
     }
 }

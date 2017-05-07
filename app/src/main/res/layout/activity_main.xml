@@ -11,7 +11,6 @@
     tools:context="com.condingblocks.remotecar.MainActivity"
     android:orientation="horizontal"
     android:weightSum="5">
-
     <Button
         android:layout_width="20dp"
         android:layout_height="wrap_content"
@@ -21,13 +20,18 @@
         android:layout_weight="1"
         android:id="@+id/btnDirection"/>
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
-        android:id="@+id/circleIV"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+    <WebView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="3"
-        />
+        android:layout_margin="10dp"
+        android:id="@+id/webView"></WebView>
+    </LinearLayout>
+
     <Button
         android:layout_width="20dp"
         android:layout_height="wrap_content"
