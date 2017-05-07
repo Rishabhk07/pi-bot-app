@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">remote car</string>
+    <string name="app_name">Adventure X</string>
 
     <string name="title_activity_choice">ChoiceActivity</string>
     <string name="dummy_button">Dummy Button</string>

@@ -1,6 +1,7 @@
 package com.condingblocks.remotecar.views;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -19,6 +20,9 @@ public class ChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choice);
         mountainCard = (CardView) findViewById(R.id.cardMountain);
         roadCard = (CardView) findViewById(R.id.cardRoad);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Adventure X");
+
 
         mountainCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +31,7 @@ public class ChoiceActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
         roadCard.setOnClickListener(new View.OnClickListener() {
             @Override
