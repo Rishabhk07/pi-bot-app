@@ -35,7 +35,7 @@ public class SensorListner implements SensorEventListener {
 
     public SensorListner() {
         try {
-            socket = IO.socket("http://192.168.1.34:8888/");
+            socket = IO.socket("http://192.168.1.38:8888/");
             Log.d(TAG, "SensorListner: init");
         } catch (URISyntaxException e) {
             e.printStackTrace();

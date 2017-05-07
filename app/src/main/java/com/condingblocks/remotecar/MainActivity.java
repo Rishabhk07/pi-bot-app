@@ -95,9 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     enableLeft = true;
                     enableRight = false;
+                    btnRight.setEnabled(false);
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableLeft = false;
                     enableRight = false;
+                    btnRight.setEnabled(true);
                 }
                 return false;
             }
@@ -109,9 +111,11 @@ public class MainActivity extends AppCompatActivity {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     enableLeft = false;
                     enableRight = true;
+                    btnLeft.setEnabled(false);
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableLeft = false;
                     enableRight = false;
+                    btnLeft.setEnabled(true);
                 }
                 return false;
             }

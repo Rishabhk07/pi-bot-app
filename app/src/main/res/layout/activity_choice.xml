@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_choice"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.condingblocks.remotecar.views.ChoiceActivity"
+    android:orientation="vertical">
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="#ff5252">-->
+
+    <!--</FrameLayout>-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:layout_margin="20dp"
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/mountain"
+                android:scaleType="fitXY"
+                />
+                <View
+                    android:id="@+id/shadow_view"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:alpha=".4"
+                    android:background="#000000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:text="Button Mountain"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"/>
+
+            </FrameLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:layout_margin="20dp"
+        >
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/road"
+                    android:scaleType="fitXY"
+                    />
+                <View
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:alpha=".4"
+                    android:background="#000000"/>
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:text="Sensor Road"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"/>
+            </FrameLayout>
+        </android.support.v7.widget.CardView>
+
+    </FrameLayout>
+
+
+</LinearLayout>

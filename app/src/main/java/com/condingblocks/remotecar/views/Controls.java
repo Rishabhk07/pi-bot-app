@@ -158,11 +158,12 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
 
     public void socketConnection(){
         try {
-            socket = IO.socket("http://192.168.1.36:8888/");
+            socket = IO.socket("http://192.168.1.38:8888/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         Log.d(TAG, "SensorListner: constructor");
+        if(socket  != null)
         socket.connect();
         Log.d(TAG, "SensorListner: called");
 
