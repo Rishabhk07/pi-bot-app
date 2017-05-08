@@ -18,7 +18,9 @@
         android:layout_gravity="center"
         android:text="enable direction"
         android:layout_weight="1"
-        android:id="@+id/btnDirection"/>
+        android:id="@+id/btnDirection"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -39,6 +41,8 @@
         android:text="enable accel"
         android:layout_weight="1"
         android:id="@+id/btnAccel"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         />
 
 </LinearLayout>

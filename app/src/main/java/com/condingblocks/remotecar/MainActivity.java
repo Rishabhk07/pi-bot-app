@@ -125,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if(webView != null){
-            webView.loadUrl("http://http://192.168.1.38:8081/");
+            webView.loadUrl("http://192.168.43.23:8081/");
+
         }
 
 

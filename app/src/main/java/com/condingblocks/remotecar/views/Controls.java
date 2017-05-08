@@ -1,5 +1,6 @@
 package com.condingblocks.remotecar.views;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,8 +34,8 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controls);
         socketConnection();
-        left = (Button) findViewById(R.id.btnLeft);
-        right = (Button) findViewById(R.id.btnRight);
+        left = (Button) findViewById(R.id.btnRight);
+        right = (Button) findViewById(R.id.btnLeft);
         forward = (Button) findViewById(R.id.btnForward);
         backward = (Button) findViewById(R.id.btnBackward);
         gson = new Gson();
@@ -42,13 +43,13 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         left.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                Log.d(TAG, "onTouch: " + event.toString());
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     disableRight();
                     disableForward();
                     disableBackward();
                     sendSocketData("left");
                     Log.d(TAG, "onTouch: Left down");
-
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     enableRight();
                     enableForward();
@@ -62,6 +63,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         right.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     disableLeft();
                     disableForward();
@@ -82,6 +84,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         forward.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     disableRight();
                     disableLeft();
@@ -158,7 +161,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
 
     public void socketConnection(){
         try {
-            socket = IO.socket("http://192.168.1.38:8888/");
+            socket = IO.socket("http://192.168.43.23:8888/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

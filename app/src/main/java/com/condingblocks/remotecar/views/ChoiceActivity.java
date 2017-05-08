@@ -21,7 +21,8 @@ public class ChoiceActivity extends AppCompatActivity {
         mountainCard = (CardView) findViewById(R.id.cardMountain);
         roadCard = (CardView) findViewById(R.id.cardRoad);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Adventure X");
+        actionBar.setTitle("Pi Bot");
+        actionBar.setIcon(R.mipmap.rasp);
 
 
         mountainCard.setOnClickListener(new View.OnClickListener() {

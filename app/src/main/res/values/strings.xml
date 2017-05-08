@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Adventure X</string>
+    <string name="app_name">Pi Bot</string>
 
     <string name="title_activity_choice">ChoiceActivity</string>
     <string name="dummy_button">Dummy Button</string>
