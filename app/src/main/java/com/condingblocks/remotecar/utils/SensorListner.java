@@ -33,7 +33,7 @@ public class SensorListner implements SensorEventListener {
 
     public SensorListner() {
         try {
-            socket = IO.socket("https://car-remote.herokuapp.com/");
+            socket = IO.socket("http://192.168.43.164:8888/");
             Log.d(TAG, "SensorListner: init");
         } catch (URISyntaxException e) {
             e.printStackTrace();
