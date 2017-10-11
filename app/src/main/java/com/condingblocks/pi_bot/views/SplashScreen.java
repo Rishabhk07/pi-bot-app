@@ -1,4 +1,4 @@
-package com.condingblocks.remotecar.views;
+package com.condingblocks.pi_bot.views;
 
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -10,8 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.condingblocks.remotecar.MainActivity;
-import com.condingblocks.remotecar.R;
+import com.condingblocks.pi_bot.MainActivity;
+import com.condingblocks.pi_bot.R;
+
 
 public class SplashScreen extends AppCompatActivity {
     public void onAttachedToWindow() {

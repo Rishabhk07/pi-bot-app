@@ -1,6 +1,5 @@
-package com.condingblocks.remotecar.views;
+package com.condingblocks.pi_bot.views;
 
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,11 +7,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import com.condingblocks.remotecar.R;
-import com.condingblocks.remotecar.models.Direction;
-import com.google.gson.Gson;
 
-import org.json.JSONObject;
+import com.condingblocks.pi_bot.R;
+import com.condingblocks.pi_bot.models.Direction;
+import com.google.gson.Gson;
 
 import java.net.URISyntaxException;
 

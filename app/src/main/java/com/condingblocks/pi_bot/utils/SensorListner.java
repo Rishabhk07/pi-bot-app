@@ -1,18 +1,15 @@
-package com.condingblocks.remotecar.utils;
+package com.condingblocks.pi_bot.utils;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.util.Log;
 
-import com.condingblocks.remotecar.MainActivity;
-import com.condingblocks.remotecar.models.Direction;
-import com.condingblocks.remotecar.models.SensorDataModel;
+import com.condingblocks.pi_bot.models.SensorDataModel;
+import com.condingblocks.pi_bot.MainActivity;
+import com.condingblocks.pi_bot.models.Direction;
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
-
-import java.net.Socket;
 import java.net.URISyntaxException;
 
 import io.socket.client.IO;

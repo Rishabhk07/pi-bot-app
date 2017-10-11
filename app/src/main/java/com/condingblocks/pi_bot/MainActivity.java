@@ -1,4 +1,4 @@
-package com.condingblocks.remotecar;
+package com.condingblocks.pi_bot;
 
 import android.graphics.Point;
 import android.hardware.Sensor;
@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.condingblocks.remotecar.utils.SensorListner;
+import com.condingblocks.pi_bot.utils.SensorListner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +22,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 
 public class MainActivity extends AppCompatActivity {
 

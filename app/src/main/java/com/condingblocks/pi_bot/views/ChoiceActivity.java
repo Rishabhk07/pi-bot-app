@@ -1,4 +1,4 @@
-package com.condingblocks.remotecar.views;
+package com.condingblocks.pi_bot.views;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
-import com.condingblocks.remotecar.MainActivity;
-import com.condingblocks.remotecar.R;
+import com.condingblocks.pi_bot.MainActivity;
+import com.condingblocks.pi_bot.R;
+
 
 public class ChoiceActivity extends AppCompatActivity {
     CardView mountainCard;
