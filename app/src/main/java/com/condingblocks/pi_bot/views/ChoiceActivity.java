@@ -35,12 +35,12 @@ public class ChoiceActivity extends AppCompatActivity {
         });
 
 
-        roadCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ChoiceActivity.this , MainActivity.class);
-                startActivity(i);
-            }
-        });
+//        roadCard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(ChoiceActivity.this , MainActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 }
