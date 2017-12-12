@@ -1,5 +1,6 @@
 package com.condingblocks.pi_bot.views;
 
+import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -40,9 +41,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng wheelchair = new LatLng(28.4667, 77.0333);
-        mMap.addMarker(new MarkerOptions().position(wheelchair).title("your Wheelchair"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(wheelchair));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
+        LatLng wheelchair;
+        if(Controls.lat != null && Controls.longi != null){
+            wheelchair = new LatLng(Controls.lat,Controls.longi);
+            mMap.addMarker(new MarkerOptions().position(wheelchair).title("your Wheelchair"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(wheelchair));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
+        }
     }
 }
