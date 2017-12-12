@@ -5,4 +5,6 @@ package com.condingblocks.pi_bot.models;
  */
 
 public class Location {
+    String lat;
+    String longi;
 }
