@@ -81,6 +81,7 @@
             android:layout_marginRight="40dp"
             app:borderWidth="0dp"
             android:id="@+id/floating"
+            android:src="@drawable/ic_location_on_white_18dp"
             />
 
 
