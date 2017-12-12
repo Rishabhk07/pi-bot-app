@@ -1,5 +1,7 @@
 package com.condingblocks.pi_bot.views;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import com.condingblocks.pi_bot.models.Direction;
 import com.google.gson.Gson;
 
 import java.net.URISyntaxException;
+import java.util.ResourceBundle;
 
 import io.socket.client.IO;
 import io.socket.emitter.Emitter;
@@ -22,6 +25,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
     Button right;
     Button forward;
     Button backward;
+    FloatingActionButton btn;
     io.socket.client.Socket socket;
     public static final String TAG = "Controls";
     Gson gson;
@@ -36,6 +40,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
         right = (Button) findViewById(R.id.btnLeft);
         forward = (Button) findViewById(R.id.btnForward);
         backward = (Button) findViewById(R.id.btnBackward);
+        btn = (FloatingActionButton) findViewById(R.id.floating);
         gson = new Gson();
 
         left.setOnTouchListener(new View.OnTouchListener() {
@@ -119,6 +124,14 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
                     Log.d(TAG, "onTouch: forward stop");
                 }
                 return false;
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Controls.this,MapsActivity.class);
+                startActivity(i);
             }
         });
 
