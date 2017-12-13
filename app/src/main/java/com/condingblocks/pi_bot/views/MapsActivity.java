@@ -1,8 +1,11 @@
 package com.condingblocks.pi_bot.views;
 
+import android.content.Intent;
 import android.location.LocationManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.condingblocks.pi_bot.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,9 +15,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ResourceBundle;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    FloatingActionButton shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        shareButton = (FloatingActionButton) findViewById(R.id.btnShare);
     }
 
 
@@ -48,5 +55,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLng(wheelchair));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
         }
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uri = "http://maps.google.com/maps?saddr=" + Controls.lat+","+Controls.longi;
+
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+
+                sharingIntent.setType("text/plain");
+
+                String string = "Here is location ";
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,string);
+                sharingIntent.putExtra(Intent.EXTRA_TEXT,uri);
+                startActivity(Intent.createChooser(sharingIntent,"share via"));
+            }
+        });
     }
 }
