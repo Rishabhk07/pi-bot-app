@@ -19,8 +19,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".views.SplashScreen"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".views.SplashScreen" />
         <activity
             android:name=".views.Controls"
             android:screenOrientation="landscape" />
@@ -46,7 +46,9 @@
 
         <activity
             android:name=".views.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".views.LoginActvity" />
+        <activity android:name=".views.SignupActivity"></activity>
     </application>
 
 </manifest>

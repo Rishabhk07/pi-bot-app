@@ -224,7 +224,7 @@ public class Controls extends AppCompatActivity implements View.OnClickListener 
 
     public void socketConnection(){
         try {
-            socket = IO.socket("http://192.168.1.5:8888/");
+            socket = IO.socket("http://192.168.43.23:8888/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
